@@ -1,5 +1,34 @@
 # Desafio MBA Engenharia de Software com IA - Full Cycle
 
+## Sobre o Projeto
+
+Este é um sistema de **RAG (Retrieval-Augmented Generation)** que implementa um chatbot inteligente capaz de responder perguntas baseado no conteúdo de documentos PDF. O sistema utiliza técnicas avançadas de processamento de linguagem natural e busca semântica para fornecer respostas precisas e contextualizadas.
+
+### Funcionalidades Principais
+
+- **Ingestão de Documentos PDF**: Extrai e processa documentos PDF, dividindo-os em chunks otimizados para busca semântica
+- **Geração de Embeddings**: Utiliza modelos de IA da OpenAI para criar representações vetoriais do conteúdo dos documentos
+- **Armazenamento Vetorial**: Armazena os embeddings em um banco de dados PostgreSQL com extensão pgvector para busca
+- **Chatbot Inteligente**: Interface de conversação que permite fazer perguntas sobre o conteúdo dos documentos ingeridos
+- **Busca Semântica**: Encontra as informações mais relevantes para responder às perguntas do usuário
+
+### Arquitetura do Sistema
+
+O projeto é composto por três componentes principais:
+
+1. **`ingest.py`**: Script responsável pela ingestão e processamento de documentos PDF
+2. **`search.py`**: Módulo de busca semântica que localiza informações relevantes
+3. **`chat.py`**: Interface de chat que integra busca e geração de respostas
+
+### Tecnologias Utilizadas
+
+- **LangChain**: Framework para desenvolvimento de aplicações de IA
+- **OpenAI API**: Modelos de embeddings e geração de texto
+- **Google Gemini**: API alternativa para processamento de linguagem natural
+- **PostgreSQL + pgvector**: Banco de dados com suporte a busca vetorial
+- **PyPDF**: Processamento de documentos PDF
+- **Docker**: Containerização do banco de dados
+
 ## Configuração do Ambiente
 
 Para configurar o ambiente e instalar as dependências do projeto, siga os passos abaixo:
