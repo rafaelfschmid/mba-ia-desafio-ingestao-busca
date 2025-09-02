@@ -3,7 +3,7 @@ from search import search_prompt
 
 def main():
     while True:
-        query = input("User: ")
+        query = input("USER: ")
         if query == "exit":
             break
 
@@ -14,7 +14,7 @@ def main():
             return
         
         print("-"*50)
-        print(f"Assistant: {chain}")
+        print(f"ASSISTANT: {chain}")
         print("-"*50)
 
 

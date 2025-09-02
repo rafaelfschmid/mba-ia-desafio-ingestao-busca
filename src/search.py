@@ -30,6 +30,7 @@ REGRAS:
   "Não tenho informações necessárias para responder sua pergunta."
 - Nunca invente ou use conhecimento externo.
 - Nunca produza opiniões ou interpretações além do que está escrito.
+- Sempre responda na mesma lingua que foi perguntada.
 
 EXEMPLOS DE PERGUNTAS FORA DO CONTEXTO:
 Pergunta: "Qual é a capital da França?"
@@ -61,7 +62,7 @@ def document_search(query: str) -> dict[str, str]:
       connection=os.getenv("DATABASE_URL"),
       use_jsonb=True,
   )
-  docs = store.similarity_search_with_score(query, k=2)
+  docs = store.similarity_search_with_score(query, k=10)
   
   if not docs:
       err = "No documents found for this query."
@@ -73,10 +74,6 @@ def document_search(query: str) -> dict[str, str]:
 def prepare_inputs(payload: dict) -> dict:
   input = payload.get("input", "")
   raw_history = payload.get("raw_history", [])
-  
-  print(f"🔍 Input: {input}")
-  print(f"📚 Raw history length: {len(raw_history)}")
-  print(f"📚 Raw history: {raw_history}")
       
   trimmed = trim_messages(
       raw_history,
